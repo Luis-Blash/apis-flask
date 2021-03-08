@@ -9,7 +9,7 @@ app = Flask(__name__)
 #------ SQLAlchemy
 # creamos la url
 # la base y su driver (si lo necesita)://usuario:contraseña@puerto/baseDatos
-urldb= 'mysql+pymysql://root:@localhost/flaskrest'
+urldb= 'mysql+pymysql://root:123@base/flaskrest'
 # le decimos donde esta nuestra base
 app.config['SQLALCHEMY_DATABASE_URI']=urldb
 # con esto evitamos un Warning al conectar
