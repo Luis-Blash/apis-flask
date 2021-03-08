@@ -26,6 +26,10 @@ Es un ejemplo sencillo sin conexion a base de datos, usando de manera local un p
 
 ## comidas mongo consola
 Conexion a mongo, haciendo un CRUD usando pymongo
+
+[comida-mongo-flask](https://github.com/Luis-Blash/apis-flask/tree/master/comidas-mongo-consola "consola-mongo")
+
+
 ```bash
 # driver para mongo
 pip install pymongo
