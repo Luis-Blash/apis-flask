@@ -20,7 +20,7 @@ pip install pymysql
 ## recipes-flask
 Es un ejemplo sencillo sin conexion a base de datos, usando de manera local un pequeño JSON, usando flask
 
-[api-flaszt-mysql](https://github.com/Luis-Blash/apis-flask/tree/master/recipes-flask "recipes-flask")
+[api-recipes](https://github.com/Luis-Blash/apis-flask/tree/master/recipes-flask "recipes-flask")
 
 ![alt flask_recipe](https://github.com/Luis-Blash/apis-flask/blob/master/git-img/recipes-flask.png "Flask recipe")
 
