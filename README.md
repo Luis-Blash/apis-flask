@@ -31,3 +31,18 @@ Conexion a mongo, haciendo un CRUD usando pymongo
 pip install pymongo
 
 ```
+
+## Usuarios flask mongo
+Conexion de mongo usando flask, crear una rest api
+
+[usarios-flask-mongo](https://github.com/Luis-Blash/apis-flask/tree/master/usuarios-flask-mongo "usuarios-flask")
+
+![alt flask_usuario](https://github.com/Luis-Blash/apis-flask/blob/master/git-img/flask-mongo.png "Flask usuario")
+
+```bash
+# flask mongo para hacer la conexion
+pip install Flask-PyMongo
+# Flask
+pip install Flask
+
+```

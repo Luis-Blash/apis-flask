@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify
 # SQLAlchemy es una herramienta para los objetos relacionales SQL
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
