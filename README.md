@@ -1,7 +1,7 @@
-# apis-Flask
+# apis-Flask 🌎
 > Un repositorio con varios rest api de ejmplo donde utiliza diferentes bases de datos y cada uno con sus respectivos formas de instalacion, como tambien los comandos
 
-## api-flaszt-mysql
+## api-flaszt-mysql 🗒
 Usando una conexion a mysql con flask, para crear una pequeña app de notas.
 
 Las librerias que se necesitan es:
@@ -17,14 +17,14 @@ pip install pymysql
 
 ![alt flask_mysql](https://github.com/Luis-Blash/apis-flask/blob/master/git-img/flask-mysql.png "Flask mysql")
 
-## recipes-flask
+## recipes-flask 🍽
 Es un ejemplo sencillo sin conexion a base de datos, usando de manera local un pequeño JSON, usando flask
 
 [api-recipes](https://github.com/Luis-Blash/apis-flask/tree/master/recipes-flask "recipes-flask")
 
 ![alt flask_recipe](https://github.com/Luis-Blash/apis-flask/blob/master/git-img/recipes-flask.png "Flask recipe")
 
-## comidas mongo consola
+## comidas mongo consola 🍖
 Conexion a mongo, haciendo un CRUD usando pymongo
 
 [comida-mongo-flask](https://github.com/Luis-Blash/apis-flask/tree/master/comidas-mongo-consola "consola-mongo")
@@ -36,13 +36,8 @@ pip install pymongo
 
 ```
 
-## Usuarios flask mongo
+## Usuarios flask mongo 🙎
 Conexion de mongo usando flask, crear una rest api
-
-[usarios-flask-mongo](https://github.com/Luis-Blash/apis-flask/tree/master/usuarios-flask-mongo "usuarios-flask")
-
-![alt flask_usuario](https://github.com/Luis-Blash/apis-flask/blob/master/git-img/flask-mongo.png "Flask usuario")
-
 ```bash
 # flask mongo para hacer la conexion
 pip install Flask-PyMongo
@@ -50,3 +45,21 @@ pip install Flask-PyMongo
 pip install Flask
 
 ```
+
+[usarios-flask-mongo](https://github.com/Luis-Blash/apis-flask/tree/master/usuarios-flask-mongo "usuarios-flask")
+
+![alt flask_usuario](https://github.com/Luis-Blash/apis-flask/blob/master/git-img/flask-mongo.png "Flask usuario")
+
+
+## Construido con: 🛠
+
+Las herramientas utilizas para su creacion
+
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - MicroFramework de python
+* [MySql](https://www.mysql.com/) - Base de datos relacional
+* [Mongo](https://www.mongodb.com/es) - Base de datos NNoSQL
+
+## Autor
+* **Luis Ocampo** - *Programacion backend* - [luisblash3](https://twitter.com/luisblash3)
+
+
