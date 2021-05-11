@@ -4,7 +4,7 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "anime",
-            "database": "${workspaceFolder:personajes-anime}/app/database/database.db"
+            "database": "${workspaceFolder:animes}/app/database/database.db"
         }
     ],
     "sqltools.useNodeRuntime": true
