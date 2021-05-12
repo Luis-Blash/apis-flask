@@ -1,4 +1,6 @@
+from typing import Optional
 from flask import Blueprint, jsonify, request
+from flask.helpers import make_response
 from app.models.anime import Anime
 from app import db
 import json
@@ -19,21 +21,43 @@ def anime_all():
     capitulos
     estado
     '''
-    animes = Anime.query.all()
+    
+    nombre = request.args.get('nombre', default=None, type=None)
     datos = []
-    for i in animes:
-        json_datos = {
-            "id": i.id,
-            "anime":i.anime,
-            "temporada":i.temporada,
-            "fecha_publicacion":i.fecha_publicacion,
-            "fecha_termino":i.fecha_publicacion,
-            "capitulos":i.capitulos,
-            "estado":i.estado
-        }
-        datos.append(json_datos)
-    datos = json.dumps(datos)
-    return datos
+    if nombre == None:
+        animes = Anime.query.all()
+        for i in animes:
+            json_datos = {
+                "id": i.id,
+                "anime":i.anime,
+                "temporada":i.temporada,
+                "fecha_publicacion":i.fecha_publicacion,
+                "fecha_termino":i.fecha_publicacion,
+                "capitulos":i.capitulos,
+                "estado":i.estado
+            }
+            datos.append(json_datos)
+        datos = json.dumps(datos)
+        respuesta =  make_response(datos,200)
+        respuesta.headers['Content-Type'] = 'application/json'
+        return respuesta
+    else:
+        busqueda = Anime.query.filter(Anime.anime.like(f'%{nombre}%')).all()
+        for i in busqueda:
+            json_datos = {
+                "id": i.id,
+                "anime":i.anime,
+                "temporada":i.temporada,
+                "fecha_publicacion":i.fecha_publicacion,
+                "fecha_termino":i.fecha_publicacion,
+                "capitulos":i.capitulos,
+                "estado":i.estado
+            }
+            datos.append(json_datos)
+        datos = json.dumps(datos)
+        respuesta =  make_response(datos,200)
+        respuesta.headers['Content-Type'] = 'application/json'
+        return respuesta
 
 @home.route('/anime/<anime>', methods=['GET'])
 def anime_id(anime:str):
@@ -49,7 +73,9 @@ def anime_id(anime:str):
                 "capitulos":query_anime.capitulos,
                 "estado":query_anime.estado
         }
-        return json.dumps(json_datos)
+        respuesta =  make_response(json_datos,200)
+        respuesta.headers['Content-Type'] = 'application/json'
+        return respuesta
     except AttributeError:
         return jsonify({'mensaje':f'No es String: {anime}'}),400
 
@@ -73,8 +99,9 @@ def anime_post():
     capitulos:int
     estado:booleado
     '''
+
     data = request.get_json()
-    nombre = data['nombre'].lower()
+    nombre = data['anime'].lower()
     anime = Anime.query.filter_by(anime=nombre).first()
     if anime or nombre == '':
         return jsonify({'mensaje':f'Existe: {nombre}'})
