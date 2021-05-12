@@ -35,6 +35,34 @@ def anime_all():
     datos = json.dumps(datos)
     return datos
 
+@home.route('/anime/<anime>', methods=['GET'])
+def anime_id(anime:str):
+    try:
+        anime = anime.lower()
+        query_anime = Anime.query.filter_by(anime=anime).first()
+        json_datos = {
+                "id": query_anime.id,
+                "anime":query_anime.anime,
+                "temporada":query_anime.temporada,
+                "fecha_publicacion":query_anime.fecha_publicacion,
+                "fecha_termino":query_anime.fecha_publicacion,
+                "capitulos":query_anime.capitulos,
+                "estado":query_anime.estado
+        }
+        return json.dumps(json_datos)
+    except AttributeError:
+        return jsonify({'mensaje':f'No es String: {anime}'}),400
+
+@home.route('/anime/<id>', methods=['DELETE'])
+def anime_delete(id:int):
+    anime_delete = Anime.query.filter_by(id=id).first()
+    if anime_delete:
+        db.session.delete(anime_delete)
+        db.session.commit()
+        return jsonify({'mensaje':'Eliminado'}),200
+    else:
+        return jsonify({'mensaje':f'No existe'}),404
+
 @home.route('/anime', methods=['POST'])
 def anime_post():
     '''Post 
