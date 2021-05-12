@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify, request, make_response
+from flask import Blueprint, jsonify, request
 from app.models.anime import Anime
 from app import db
+import json
 
 home = Blueprint('home', __name__)
 
@@ -10,7 +11,29 @@ def index():
 
 @home.route('/anime', methods=['GET'])
 def anime_all():
-    return jsonify({'anime':'anime'})
+    '''GET 
+    anime
+    temporada
+    fecha_publicacion
+    fecha_termino
+    capitulos
+    estado
+    '''
+    animes = Anime.query.all()
+    datos = []
+    for i in animes:
+        json_datos = {
+            "id": i.id,
+            "anime":i.anime,
+            "temporada":i.temporada,
+            "fecha_publicacion":i.fecha_publicacion,
+            "fecha_termino":i.fecha_publicacion,
+            "capitulos":i.capitulos,
+            "estado":i.estado
+        }
+        datos.append(json_datos)
+    datos = json.dumps(datos)
+    return datos
 
 @home.route('/anime', methods=['POST'])
 def anime_post():
